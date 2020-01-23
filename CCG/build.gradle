@@ -11,6 +11,10 @@ repositories {
     mavenCentral()
 }
 
+task build{
+    dependsOn copyDocsSetup
+}
+
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
     // https://mvnrepository.com/artifact/org.apache.poi/poi
