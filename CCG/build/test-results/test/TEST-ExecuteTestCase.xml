@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ExecuteTestCase" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-01-23T08:28:49" hostname="SPAR-IND-00046" time="20.632">
+<testsuite name="ExecuteTestCase" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-01-24T08:27:40" hostname="SPAR-IND-00046" time="46.555">
   <properties/>
-  <testcase name="runTC" classname="ExecuteTestCase" time="20.632"/>
+  <testcase name="runTC" classname="ExecuteTestCase" time="46.555"/>
   <system-out><![CDATA[7
 Key: itcsuser
 Username itcsuser login pass
@@ -17,12 +17,11 @@ Key: Wronguser
 -ve TC with Username Wronguser login Fail
 Key: admindev
 Username admindev login pass
-test completed
 ]]></system-out>
-  <system-err><![CDATA[Starting ChromeDriver 79.0.3945.36 (3582db32b33893869b8c1339e8f4d9ed1816f143-refs/branch-heads/3945@{#614}) on port 11811
+  <system-err><![CDATA[Starting ChromeDriver 79.0.3945.36 (3582db32b33893869b8c1339e8f4d9ed1816f143-refs/branch-heads/3945@{#614}) on port 35361
 Only local connections are allowed.
 Please protect ports used by ChromeDriver and related test frameworks to prevent access by malicious code.
-Jan 23, 2020 1:58:52 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+Jan 24, 2020 1:57:43 PM org.openqa.selenium.remote.ProtocolHandshake createSession
 INFO: Detected dialect: W3C
 ]]></system-err>
 </testsuite>
