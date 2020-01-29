@@ -22,6 +22,7 @@ public class HomePage {
         driver=new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
+
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.get("http://admin.dev.uhpoa.com");
     }
@@ -47,6 +48,7 @@ public class HomePage {
             driver.findElement(By.xpath(localProp.getProperty("Username"))).sendKeys(Username);
             driver.findElement(By.xpath(localProp.getProperty("Password"))).sendKeys(Password);
             driver.findElement(By.xpath(localProp.getProperty("Login"))).click();
+            System.out.println("size of property file :"+localProp.size());
 
             if(driver.getPageSource().contains("Search Customer Database")) {
                 System.out.println("Username "+Username+" login pass");
@@ -59,11 +61,14 @@ public class HomePage {
                 driver.findElement(By.xpath(localProp.getProperty("popupLogOff"))).click();
                 // Switch back to original browser (first window)
                 driver.switchTo().window(winHandleBefore);
+                //String msg=driver.findElement(By.xpath(localProp.getProperty("message"))).getText();
                 exlu.updateExcelSheet("D:\\Subodh\\AutomationFWdownload","CCGDataFile.xlsx","CCGDataSheet",++rowno,2,"Pass", "Login Successfully");
             }
             else if(driver.getPageSource().contains("We are sorry, but that is not a valid Username and/or Password.")) {
                 System.out.println("-ve TC with Username "+Username+" login Fail");
-                exlu.updateExcelSheet("D:\\Subodh\\AutomationFWdownload","CCGDataFile.xlsx","CCGDataSheet",++rowno,2,"Fail", "Username or Password is incorrect");
+
+                String msg=driver.findElement(By.xpath(localProp.getProperty("error"))).getText();
+                exlu.updateExcelSheet("D:\\Subodh\\AutomationFWdownload","CCGDataFile.xlsx","CCGDataSheet",++rowno,2,"Fail", msg);
             }else {
                 System.out.println("-Ve TC with Username "+Username+" login Fail");
                 exlu.updateExcelSheet("D:\\Subodh\\AutomationFWdownload","CCGDataFile.xlsx","CCGDataSheet",++rowno,2,"Fail","Username or Password is incorrect");
