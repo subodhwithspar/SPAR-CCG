@@ -12,8 +12,10 @@ public class ExecuteTestCase{
               hp.testFun();
               Thread.sleep(2000);
               hp.login();
+           System.out.println("Test Completed");
 
      }
 
 
 }
+ 
